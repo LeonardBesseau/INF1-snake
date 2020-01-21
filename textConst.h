@@ -12,9 +12,10 @@ const char KEY_DOWN = 's';
 const char KEY_LEFT = 'a';
 const char KEY_RIGHT = 'd';
 const char KEY_MENU = 'm';
+const char KEY_SCORES = 'k';
 
 //Score
-const char DELIMITER = ',';
+const char DELIMITER = ':';
 
 // MENU 
 const std::string TXT_HELLO = "Hello, press ";

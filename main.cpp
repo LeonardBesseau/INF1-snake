@@ -22,6 +22,8 @@
 #include "sysFunc.h"
 #include "display.h"
 #include "gameEngine.h"
+#include "scores.h"
+#include "readWriteFile.h"
 
 using namespace std;
 
@@ -62,8 +64,11 @@ eDirection manageDirection(char direction, eDirection oldDirection, bool &gameov
 */
 void reload(int &posSnakeX, int &posSnakeY, int &length, eDirection &direction, bool &gameover);
 
-#include "readWriteFile.h"
-#include "scores.h"
+void getScores(int scores);
+
+/*
+
+
 #include <algorithm>
 
 int main() {
@@ -81,8 +86,9 @@ int main() {
     cout << (a.end() != find(a.begin(), a.end(), "miguel"));
     bool b = writeDataToFiles("scores", d);
 }
+//*/
 
-/*
+
 int main() {
     // CONFIGURATIONS VARIABLES
     bool gameover = false;
@@ -143,13 +149,16 @@ int main() {
         else if (input.at(0) == KEY_INSTRUCTION)
             getInstructions(snakeSize);
             // test si on souhaite arrêter de jouer.
-        else if (input.at(0) == KEY_QUIT)
+        else if (input.at(0) == KEY_SCORES) {
+            getScores(snakeSize);
+        } else if (input.at(0) == KEY_QUIT)
             shutDown = true;
 
     } while (shutDown == false);
     return 0;
 }
-*/
+
+//*/
 void restart(int score) {
     clearScreen();
     displayMenu(score);
@@ -202,4 +211,16 @@ void reload(int &posSnakeX, int &posSnakeY, int &length, eDirection &direction, 
     length = 0;
     direction = UP;
     gameover = false;
+}
+
+void getScores(int score) {
+    clearScreen();
+    vector<string> a = getDataFromFiles(SCORE_PATH);
+    displayScores(a);
+
+    string input;
+    cin >> input;
+    if (input.at(0) == KEY_MENU)
+        restart(score);
+
 }

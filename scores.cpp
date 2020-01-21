@@ -19,7 +19,7 @@ using namespace std;
 
 void sortScore(std::vector<std::string> &list) {
     // Multimap to sort list keeping the name and score associated
-    multimap<unsigned, string> scores;
+    multimap<int, string> scores;
     for (const string &s : list) {
         size_t pos = s.find(DELIMITER);
         scores.emplace(stoi(s.substr(pos + 1)), s.substr(0, pos));
@@ -27,13 +27,13 @@ void sortScore(std::vector<std::string> &list) {
 
     size_t index = 0;
 
-    for (pair<unsigned, string> a: scores) {
+    for (pair<int, string> a: scores) {
         list.at(index) = a.second + DELIMITER + to_string(a.first);
         ++index;
     }
 }
 
-void modifyScore(vector<string> &list, const string &name, unsigned score) {
+void modifyScore(vector<string> &list, const string &name, int score) {
     for (auto &i : list) {
         size_t pos = i.find(DELIMITER);
         string test = i.substr(0, pos);

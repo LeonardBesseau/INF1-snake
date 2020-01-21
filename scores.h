@@ -27,7 +27,7 @@ void sortScore(std::vector<std::string> &list);
 
 size_t getBestScore(const std::vector<std::string> &list);
 
-void modifyScore(std::vector<std::string> &list, const std::string &name, unsigned score);
+void modifyScore(std::vector<std::string> &list, const std::string &name, int score);
 
 
 #endif //SNAKE_SCORES_H

@@ -82,6 +82,8 @@ void draw(int width, int height, int snakePosX, int snakePosY, int fruitPosX, in
     std::cout << ACTUAL_SCORE << snakeSize << std::endl;
 }
 
-void displayScores() {
-
+void displayScores(const std::vector<std::string> &list) {
+    for (auto i = list.crbegin(); i != list.crend(); ++i) {
+        std::cout << *i << std::endl;
+    }
 }

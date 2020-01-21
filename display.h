@@ -47,6 +47,6 @@ void draw(int width, int height, int snakePosX, int snakePosY, int fruitPosX, in
 /**
  * display game scores
  */
-void displayScores();
+void displayScores(const std::vector<std::string> &list);
 
 #endif
