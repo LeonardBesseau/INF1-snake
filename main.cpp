@@ -77,7 +77,8 @@ int main() {
 
     sortScore(d);
     cout << min_element(c.begin(), c.end())->first;
-
+    auto p = find(a.begin(), a.end(), "miguel");
+    cout << (a.end() != find(a.begin(), a.end(), "miguel"));
     bool b = writeDataToFiles("scores", d);
 }
 

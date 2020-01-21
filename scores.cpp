@@ -28,8 +28,20 @@ void sortScore(std::vector<std::string> &list) {
     size_t index = 0;
 
     for (pair<unsigned, string> a: scores) {
-        list.at(index) = a.second + ',' + to_string(a.first);
+        list.at(index) = a.second + DELIMITER + to_string(a.first);
         ++index;
     }
+}
+
+void modifyScore(vector<string> &list, const string &name, unsigned score) {
+    for (auto &i : list) {
+        size_t pos = i.find(DELIMITER);
+        string test = i.substr(0, pos);
+        if (test == name && stoi(i.substr(pos + 1)) < score) {
+            i = test + DELIMITER + to_string(score);
+            break;
+        }
+    }
+    list.push_back(name + DELIMITER + to_string(score));
 }
 

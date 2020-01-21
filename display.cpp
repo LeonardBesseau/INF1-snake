@@ -81,3 +81,7 @@ void draw(int width, int height, int snakePosX, int snakePosY, int fruitPosX, in
 
     std::cout << ACTUAL_SCORE << snakeSize << std::endl;
 }
+
+void displayScores() {
+
+}

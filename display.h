@@ -15,6 +15,7 @@
 #define DISPLAY
 
 #include <iostream>
+#include <vector>
 #include "textConst.h"
 
 /**
