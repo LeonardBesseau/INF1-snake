@@ -63,11 +63,22 @@ eDirection manageDirection(char direction, eDirection oldDirection, bool &gameov
 void reload(int &posSnakeX, int &posSnakeY, int &length, eDirection &direction, bool &gameover);
 
 #include "readWriteFile.h"
+#include "scores.h"
+#include <algorithm>
 
 int main() {
     vector<string> a = getDataFromFiles(SCORE_PATH);
+    vector<string> d = {"andre,12", "pierre,20", "miguel,0", "jacques,30"};
+    map<string, int> c;
+    c["andre"] = 10;
+    c["pierre"] = 20;
+    c["miguel"] = 0;
+    c["jacques"] = 30;
 
-    bool b = writeDataToFiles("scores", a);
+    sortScore(d);
+    cout << min_element(c.begin(), c.end())->first;
+
+    bool b = writeDataToFiles("scores", d);
 }
 
 /*

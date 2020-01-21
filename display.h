@@ -43,4 +43,9 @@ void displayInstructions();
 void draw(int width, int height, int snakePosX, int snakePosY, int fruitPosX, int fruitPosY, int snakeSize, int tailX[],
           int tailY[]);
 
+/**
+ * display game scores
+ */
+void displayScores();
+
 #endif

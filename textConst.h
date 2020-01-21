@@ -1,3 +1,6 @@
+#ifndef TEXTCONST_H
+#define TEXTCONST_H
+
 #include <string>
 
 // GAMES KEYS
@@ -9,6 +12,9 @@ const char KEY_DOWN = 's';
 const char KEY_LEFT = 'a';
 const char KEY_RIGHT = 'd';
 const char KEY_MENU = 'm';
+
+//Score
+const char DELIMITER = ',';
 
 // MENU 
 const std::string TXT_HELLO = "Hello, press ";
@@ -49,3 +55,5 @@ const std::string ACTUAL_SCORE = "Actual score : ";
 
 //FilePath
 const std::string SCORE_PATH = "scores";
+
+#endif
