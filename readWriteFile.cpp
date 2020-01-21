@@ -45,5 +45,5 @@ bool writeDataToFiles(const string &path, const vector<string> &list) {
         ofile << line << endl;
     }
     ofile.close();
-
+    return true;
 }
