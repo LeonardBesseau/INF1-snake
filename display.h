@@ -45,8 +45,18 @@ void draw(int width, int height, int snakePosX, int snakePosY, int fruitPosX, in
           int tailY[]);
 
 /**
- * display game scores
+ *
+ * @param list
  */
 void displayScores(const std::vector<std::string> &list);
+
+
+/**
+ *
+ * @param name
+ */
+void displayName(const std::string &name);
+
+void displayBestScore(int score);
 
 #endif

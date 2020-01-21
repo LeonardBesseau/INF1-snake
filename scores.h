@@ -25,7 +25,7 @@ Compilateur : g++ 7.4.0
 
 void sortScore(std::vector<std::string> &list);
 
-size_t getBestScore(const std::vector<std::string> &list);
+int getBestScore(const std::vector<std::string> &list, const std::string &name);
 
 void modifyScore(std::vector<std::string> &list, const std::string &name, int score);
 

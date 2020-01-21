@@ -16,7 +16,7 @@
 #include <cstring>
 #include <unistd.h>
 #include <stdio.h>
-#include <limits>
+#include <limits>)
 #include <cstdlib>
 
 #include "sysFunc.h"
@@ -66,6 +66,12 @@ void reload(int &posSnakeX, int &posSnakeY, int &length, eDirection &direction, 
 
 void getScores(int scores);
 
+void getName(string &name, int score);
+
+void setScore(const string &name, int score);
+
+void researchBestScore(int score);
+
 /*
 
 
@@ -73,22 +79,16 @@ void getScores(int scores);
 
 int main() {
     vector<string> a = getDataFromFiles(SCORE_PATH);
-    vector<string> d = {"andre,12", "pierre,20", "miguel,0", "jacques,30"};
-    map<string, int> c;
-    c["andre"] = 10;
-    c["pierre"] = 20;
-    c["miguel"] = 0;
-    c["jacques"] = 30;
-
+    vector<string> d = {"andre:12", "pierre:20","pierre:30", "miguel:0", "jacques:30"};
+    cout << d.at(0).find("pierre")<<endl;
+    modifyScore(d, "pierre", 50);
     sortScore(d);
-    cout << min_element(c.begin(), c.end())->first;
-    auto p = find(a.begin(), a.end(), "miguel");
-    cout << (a.end() != find(a.begin(), a.end(), "miguel"));
-    bool b = writeDataToFiles("scores", d);
+    cout << getBestScore(a, "tes");
+
 }
 //*/
 
-
+//*
 int main() {
     // CONFIGURATIONS VARIABLES
     bool gameover = false;
@@ -105,6 +105,10 @@ int main() {
     int posFruitX;
     int posFruitY;
     fruitSpawn(posFruitX, posFruitY, WIDTH, HEIGHT);
+
+    string playerName;
+    cout << "Entrez votre nom :";
+    getline(cin, playerName);
 
     // BOUCLE DU MENU.
     do {
@@ -143,14 +147,22 @@ int main() {
                 // met en pause le système définissant la vitesse du serpent.
                 mySleep(SPEED);
             }
+            if (actualDirection != KEY_QUIT) {
+                setScore(playerName, snakeSize);
+            }
+
 
         }
             // test si on souhaite afficher le menu
-        else if (input.at(0) == KEY_INSTRUCTION)
+        else if (input.at(0) == KEY_INSTRUCTION) {
             getInstructions(snakeSize);
             // test si on souhaite arrêter de jouer.
-        else if (input.at(0) == KEY_SCORES) {
+        } else if (input.at(0) == KEY_SCORES) {
             getScores(snakeSize);
+        } else if (input.at(0) == KEY_NAME) {
+            getName(playerName, snakeSize);
+        } else if (input.at(0) == KEY_RESEARCH) {
+            researchBestScore(snakeSize);
         } else if (input.at(0) == KEY_QUIT)
             shutDown = true;
 
@@ -215,12 +227,55 @@ void reload(int &posSnakeX, int &posSnakeY, int &length, eDirection &direction, 
 
 void getScores(int score) {
     clearScreen();
-    vector<string> a = getDataFromFiles(SCORE_PATH);
-    displayScores(a);
+    vector<string> list = getDataFromFiles(SCORE_PATH);
+    displayScores(list);
 
     string input;
     cin >> input;
     if (input.at(0) == KEY_MENU)
         restart(score);
+
+}
+
+void getName(string &name, int score) {
+    clearScreen();
+    displayName(name);
+    getline(cin, name);
+
+    string input;
+    cin >> input;
+    if (input.at(0) == KEY_MENU)
+        restart(score);
+}
+
+void setScore(const string &name, int score) {
+    vector<string> list = getDataFromFiles(SCORE_PATH);
+    modifyScore(list, name, score);
+    sortScore(list);
+    writeDataToFiles(SCORE_PATH, list);
+}
+
+void researchBestScore(int score) {
+    vector<string> list = getDataFromFiles(SCORE_PATH);
+    string input;
+    char out;
+    clearScreen();
+    do {
+
+        string input;
+        // TODO can we use cout here or do we have to do a function in display ?
+        cout << NAME_ASK;
+        getline(cin, input);
+        if (!input.empty()) {
+            int result = getBestScore(list, input);
+            displayBestScore(result);
+
+            cin >> out;
+            clearScreen();
+        }
+
+
+    } while (out != KEY_QUIT);
+
 
 }
