@@ -62,6 +62,15 @@ eDirection manageDirection(char direction, eDirection oldDirection, bool &gameov
 */
 void reload(int &posSnakeX, int &posSnakeY, int &length, eDirection &direction, bool &gameover);
 
+#include "readWriteFile.h"
+
+int main() {
+    vector<string> a = getDataFromFiles(SCORE_PATH);
+
+    bool b = writeDataToFiles("scores", a);
+}
+
+/*
 int main() {
     // CONFIGURATIONS VARIABLES
     bool gameover = false;
@@ -86,6 +95,7 @@ int main() {
         string input;
         cin >> input;
         if (input.at(0) == KEY_START) {
+
             reload(posSnakeX, posSnakeY, snakeSize, dir, gameover);
 
             // BOUCLE DE JEU
@@ -115,6 +125,7 @@ int main() {
                 // met en pause le système définissant la vitesse du serpent.
                 mySleep(SPEED);
             }
+
         }
             // test si on souhaite afficher le menu
         else if (input.at(0) == KEY_INSTRUCTION)
@@ -126,7 +137,7 @@ int main() {
     } while (shutDown == false);
     return 0;
 }
-
+*/
 void restart(int score) {
     clearScreen();
     displayMenu(score);

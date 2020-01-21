@@ -3,4 +3,4 @@ project(snake)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(snake main.cpp textConst.h sysFunc.h sysFunc.cpp gameEngine.cpp gameEngine.h display.h display.cpp)
+add_executable(snake main.cpp textConst.h sysFunc.h sysFunc.cpp gameEngine.cpp gameEngine.h display.h display.cpp readWriteFile.cpp readWriteFile.h)
