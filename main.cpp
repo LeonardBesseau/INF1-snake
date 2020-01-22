@@ -16,7 +16,7 @@
 #include <cstring>
 #include <unistd.h>
 #include <stdio.h>
-#include <limits>)
+#include <limits>
 #include <cstdlib>
 
 #include "sysFunc.h"
@@ -67,7 +67,7 @@ void reload(int &posSnakeX, int &posSnakeY, int &length, eDirection &direction, 
 
 void getScores(int scores);
 
-void getName(string &name, int score);
+void getName(string &name);
 
 void setScore(const string &name, int score);
 
@@ -111,7 +111,7 @@ int main() {
     fruitSpawn(posFruitX, posFruitY, WIDTH, HEIGHT, obstacles);
 
     string playerName;
-    getName(playerName, snakeSize);
+    getName(playerName);
 
     // BOUCLE DU MENU.
     do {
@@ -132,7 +132,7 @@ int main() {
                 draw(WIDTH, HEIGHT, posSnakeX, posSnakeY, posFruitX, posFruitY, snakeSize, tailX, tailY, obstacles);
 
                 // detecte une entrée sur le clavier et récupère le charactère.
-                char newDirection;
+                char newDirection = ' ';
                 if (kbhit()) {
                     newDirection = getch();
                 }
@@ -156,6 +156,7 @@ int main() {
 
 
         }
+
             // test si on souhaite afficher le menu
         else if (input.at(0) == KEY_INSTRUCTION) {
             getInstructions(snakeSize);
@@ -163,7 +164,7 @@ int main() {
         } else if (input.at(0) == KEY_SCORES) {
             getScores(snakeSize);
         } else if (input.at(0) == KEY_NAME) {
-            getName(playerName, snakeSize);
+            getName(playerName);
         } else if (input.at(0) == KEY_RESEARCH) {
             researchBestScore(snakeSize);
         } else if (input.at(0) == KEY_QUIT)
@@ -240,15 +241,20 @@ void getScores(int score) {
 
 }
 
-void getName(string &name, int score) {
+void getName(string &name) {
+    string input;
     do {
+        cin.ignore(size_t(-1), '\n');
         clearScreen();
         displayName(name);
-        getline(cin, name);
-        if (count(name.begin(), name.end(), DELIMITER)) {
-            name.clear();
+
+        getline(cin, input);
+
+        if (count(input.begin(), input.end(), DELIMITER)) {
+            input.clear();
         }
-    } while (name.empty());
+    } while (input.empty() || (input.length() == 1 && input.at(0) == KEY_QUIT));
+    name = input;
 
 }
 
@@ -279,7 +285,6 @@ void researchBestScore(int score) {
         }
         exit = (input.length() == 1 && input.at(0) == KEY_QUIT);
     } while (!exit);
-
 
 
 }
