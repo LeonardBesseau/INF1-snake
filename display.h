@@ -15,6 +15,7 @@
 #define DISPLAY
 
 #include <iostream>
+#include <vector>
 #include "textConst.h"
 #include <vector>
 
@@ -43,5 +44,20 @@ void displayInstructions();
 */
 void draw(int width, int height, int snakePosX, int snakePosY, int fruitPosX, int fruitPosY, int snakeSize, int tailX[],
           int tailY[], std::vector<std::vector<int>> &obstacles);
+
+/**
+ *
+ * @param list
+ */
+void displayScores(const std::vector<std::string> &list);
+
+
+/**
+ *
+ * @param name
+ */
+void displayName(const std::string &name);
+
+void displayBestScore(int score);
 
 #endif

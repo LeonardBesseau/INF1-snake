@@ -29,6 +29,9 @@ void displayInstructions() {
     std::cout << INSTR_RIGHT << std::endl;
     std::cout << INSTR_EXIT << std::endl;
     std::cout << INSTR_MENU << std::endl;
+    std::cout << INSTR_SCORES << std::endl;
+    std::cout << INSTR_NAME << std::endl;
+    std::cout << INSTR_RESEARCH << std::endl;
 }
 
 void draw(int width, int height, int snakePosX, int snakePosY, int fruitPosX, int fruitPosY, int snakeSize, int tailX[],
@@ -87,5 +90,28 @@ void draw(int width, int height, int snakePosX, int snakePosY, int fruitPosX, in
     std::cout << std::endl;
 
     std::cout << ACTUAL_SCORE << snakeSize << std::endl;
+}
 
+void displayScores(const std::vector<std::string> &list) {
+    unsigned index = 1;
+    for (auto i = list.crbegin(); i != list.crend(); ++i) {
+        std::cout << index++ << " " << *i << std::endl;
+    }
+}
+
+void displayName(const std::string &name) {
+    if (name.empty()) {
+        std::cout << NAME_ASK << std::endl;
+    } else {
+        std::cout << NAME_CURRENT << name << std::endl;
+        std::cout << NAME_CHANGE << std::endl;
+    }
+}
+
+void displayBestScore(int score) {
+    if (score < 0) {
+        std::cout << NO_PLAYER_FOUND << std::endl;
+    } else {
+        std::cout << BEST_SCORE << " " << score << std::endl;
+    }
 }
