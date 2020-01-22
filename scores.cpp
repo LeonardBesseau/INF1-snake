@@ -40,31 +40,9 @@ void modifyScore(vector<string> &list, const string &name, int score) {
     }
 }
 
-/*/
-int getBestScore(const std::vector<std::string> &list, const std::string &name) {
-    if(list.empty()){
-        return -1;
-    }else{
-        for (size_t i = list.size() - 1; i > 0; --i) {
-            if(list.at(i).find(name) != string::npos){
-                return stoi(list.at(i).substr(list.at(i).find(DELIMITER)+1));
-            }
-        }
-        if(list.at(0).find(name) != string::npos){
-            return stoi(list.at(0).substr(list.at(0).find(DELIMITER)+1));
-        }else{
-            return -1;
-        }
-
-    }
-}
- //*/
 
 int getBestScore(const std::vector<std::string> &list, const std::string &name) {
     multimap<string, int> scores;
-    // TODO typedef in header or in function
-    // TODO typedef or using
-    typedef std::multimap<string, int>::iterator mapIterator;
 
     // fill in map with data
     for (const string &s : list) {

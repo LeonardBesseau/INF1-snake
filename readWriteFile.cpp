@@ -11,7 +11,7 @@ Remarque(s) :
 Compilateur : g++ 7.4.0
 
 --------------------------- */
-#include <iostream>
+
 #include "readWriteFile.h"
 
 using namespace std;

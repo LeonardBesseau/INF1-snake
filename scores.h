@@ -23,6 +23,8 @@ Compilateur : g++ 7.4.0
 #include "textConst.h"
 
 
+typedef std::multimap<std::string, int>::iterator mapIterator;
+
 void sortScore(std::vector<std::string> &list);
 
 int getBestScore(const std::vector<std::string> &list, const std::string &name);

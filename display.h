@@ -60,4 +60,6 @@ void displayName(const std::string &name);
 
 void displayBestScore(int score);
 
+void displayAskForName();
+
 #endif

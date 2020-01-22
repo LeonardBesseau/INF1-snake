@@ -15,6 +15,7 @@ Compilateur : g++ 7.4.0
 #ifndef SNAKE_READWRITEFILE_H
 #define SNAKE_READWRITEFILE_H
 
+#include <iostream>
 #include <fstream>
 #include <vector>
 #include <string>

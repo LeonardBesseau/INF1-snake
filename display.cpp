@@ -115,3 +115,8 @@ void displayBestScore(int score) {
         std::cout << BEST_SCORE << " " << score << std::endl;
     }
 }
+
+void displayAskForName() {
+    std::cout << INSTR_EXIT << std::endl;
+    std::cout << NAME_ASK;
+}
