@@ -32,6 +32,7 @@ const int HEIGHT = 20;
 const int START_POS_X_SNAKE = WIDTH / 2;
 const int START_POS_Y_SNAKE = HEIGHT / 2;
 const int SPEED = 500000;
+const int N_OBSTACLES = 10;
 
 /**
 * @brief Fonction affichant le menu et supprimant l'affichage du terminal.
@@ -102,9 +103,12 @@ int main() {
     eDirection dir;
     reload(posSnakeX, posSnakeY, snakeSize, dir, gameover);
 
+    vector<vector<int>> obstacles;
+    obstaclesSpawn(obstacles, WIDTH, HEIGHT, N_OBSTACLES);
+
     int posFruitX;
     int posFruitY;
-    fruitSpawn(posFruitX, posFruitY, WIDTH, HEIGHT);
+    fruitSpawn(posFruitX, posFruitY, WIDTH, HEIGHT, obstacles);
 
     string playerName;
     getName(playerName);
@@ -125,7 +129,7 @@ int main() {
                 clearScreen();
 
                 // dessine le pleateau de jeu
-                draw(WIDTH, HEIGHT, posSnakeX, posSnakeY, posFruitX, posFruitY, snakeSize, tailX, tailY);
+                draw(WIDTH, HEIGHT, posSnakeX, posSnakeY, posFruitX, posFruitY, snakeSize, tailX, tailY, obstacles);
 
                 // detecte une entrée sur le clavier et récupère le charactère.
                 char newDirection = ' ';
@@ -141,7 +145,7 @@ int main() {
 
                 // Ordonne le mouvement au serpent et définis si il meurt.
                 logic(WIDTH, HEIGHT, posSnakeX, posSnakeY, posFruitX, posFruitY, snakeSize, tailX, tailY, dir,
-                      gameover);
+                      gameover, obstacles);
 
                 // met en pause le système définissant la vitesse du serpent.
                 mySleep(SPEED);

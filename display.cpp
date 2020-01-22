@@ -12,6 +12,7 @@
  */
 
 #include "display.h"
+#include <algorithm>
 
 void displayMenu(int score) {
     std::cout << MENU_WELCOME << std::endl;
@@ -34,7 +35,8 @@ void displayInstructions() {
 }
 
 void draw(int width, int height, int snakePosX, int snakePosY, int fruitPosX, int fruitPosY, int snakeSize, int tailX[],
-          int tailY[]) {
+          int tailY[], std::vector<std::vector<int>> &obstacles) {
+    std::vector<int> drawPos(2);
     for (int i = 0; i < width + 2; i++) {
         std::cout << BORDER;
     }
@@ -42,7 +44,9 @@ void draw(int width, int height, int snakePosX, int snakePosY, int fruitPosX, in
     std::cout << std::endl;
 
     for (int i = 0; i < height; i++) {
+        drawPos.at(1) = i;
         for (int j = 0; j < width; j++) {
+            drawPos.at(0) = j;
             if (j == 0)
                 std::cout << BORDER;
 
@@ -51,6 +55,9 @@ void draw(int width, int height, int snakePosX, int snakePosY, int fruitPosX, in
 
             else if (i == fruitPosY && j == fruitPosX)
                 std::cout << FRUIT;
+
+            else if (obstacles.end() != find(obstacles.begin(), obstacles.end(), drawPos))
+                std::cout << OBSTACLE;
 
             else {
 

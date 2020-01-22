@@ -17,11 +17,12 @@
 #include <stdlib.h>
 #include <time.h>
 #include <cstdlib>
+#include <vector>
 
 enum eDirection {
     STOP, LEFT, RIGHT, UP, DOWN
 };
-
+std::vector<int> randomizeCoordinate(int width, int height, std::vector<std::vector<int>> &obstacles);
 /**
 * @brief Fonction calculant la position du prochain FRUIT.
 * @param fruitX [out] position X du Fruit.
@@ -29,7 +30,9 @@ enum eDirection {
 * @param width largeur du jeu.
 * @param height hauteur du jeu.
 */
-void fruitSpawn(int &fruitX, int &fruitY, const int width, const int height);
+void fruitSpawn(int &fruitX, int &fruitY, const int width, const int height, std::vector<std::vector<int>> &obstacles);
+
+void obstaclesSpawn(std::vector<std::vector<int>> &obstacles, const int width, const int height, const int &NObstacles);
 
 
 /**
@@ -48,6 +51,6 @@ void fruitSpawn(int &fruitX, int &fruitY, const int width, const int height);
 */
 void
 logic(const int width, const int height, int &snakePosX, int &snakePosY, int &fruitPosX, int &fruitPosY, int &snakeSize,
-      int tailX[], int tailY[], const eDirection direction, bool &gameover);
+      int tailX[], int tailY[], const eDirection direction, bool &gameover, std::vector<std::vector<int>> &obstacles);
 
 #endif

@@ -17,6 +17,7 @@
 #include <iostream>
 #include <vector>
 #include "textConst.h"
+#include <vector>
 
 /**
 * @brief Fonction affichant les informations du menu au terminal.
@@ -42,7 +43,7 @@ void displayInstructions();
 * @param tailY tableau de positions Y correspondant aux coordonnées Y de la queue du serpent
 */
 void draw(int width, int height, int snakePosX, int snakePosY, int fruitPosX, int fruitPosY, int snakeSize, int tailX[],
-          int tailY[]);
+          int tailY[], std::vector<std::vector<int>> &obstacles);
 
 /**
  *
