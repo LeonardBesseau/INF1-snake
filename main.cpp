@@ -107,8 +107,7 @@ int main() {
     fruitSpawn(posFruitX, posFruitY, WIDTH, HEIGHT);
 
     string playerName;
-    cout << "Entrez votre nom :";
-    getline(cin, playerName);
+    getName(playerName, snakeSize);
 
     // BOUCLE DU MENU.
     do {
@@ -238,14 +237,15 @@ void getScores(int score) {
 }
 
 void getName(string &name, int score) {
-    clearScreen();
-    displayName(name);
-    getline(cin, name);
+    do {
+        clearScreen();
+        displayName(name);
+        getline(cin, name);
+        if (count(name.begin(), name.end(), DELIMITER)) {
+            name.clear();
+        }
+    } while (name.empty());
 
-    string input;
-    cin >> input;
-    if (input.at(0) == KEY_MENU)
-        restart(score);
 }
 
 void setScore(const string &name, int score) {
@@ -258,24 +258,24 @@ void setScore(const string &name, int score) {
 void researchBestScore(int score) {
     vector<string> list = getDataFromFiles(SCORE_PATH);
     string input;
-    char out;
-    clearScreen();
+    bool exit = false;
+    char a;
     do {
-
-        string input;
         // TODO can we use cout here or do we have to do a function in display ?
+        if (input.empty()) {
+            clearScreen();
+            cout << INSTR_EXIT << endl;
+        }
         cout << NAME_ASK;
+
         getline(cin, input);
         if (!input.empty()) {
             int result = getBestScore(list, input);
             displayBestScore(result);
-
-            cin >> out;
-            clearScreen();
         }
+        exit = (input.length() == 1 && input.at(0) == KEY_QUIT);
+    } while (!exit);
 
-
-    } while (out != KEY_QUIT);
 
 
 }
