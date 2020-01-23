@@ -1,3 +1,16 @@
+/* ---------------------------
+Laboratoire : 10
+Fichier : textConst.h
+Auteur(s) : Besseau
+Date :  23.01.2020
+
+But : Ce fichier contient toutes les constantes de textes relatifs au projet snake
+
+Remarque(s) :
+
+Compilateur : g++ 7.4.0
+
+--------------------------- */
 #ifndef TEXTCONST_H
 #define TEXTCONST_H
 

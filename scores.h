@@ -4,9 +4,9 @@ Fichier : scores.h
 Auteur(s) : Besseau
 Date :  21.01.2020
 
-But :
+But : Gérer un système de score avec tri et recherche du meilleur score
 
-Remarque(s) :
+Remarque(s) : le score est toujours positif
 
 Compilateur : g++ 7.4.0
 
@@ -23,7 +23,7 @@ Compilateur : g++ 7.4.0
 #include "textConst.h"
 
 
-typedef std::multimap<std::string, int>::iterator mapIterator;
+typedef std::multimap<std::string, int>::const_iterator mapIterator;
 
 /**
  * Sort the list of name and score by score
@@ -44,6 +44,14 @@ void sortScore(std::vector<std::string> &list);
  * @return the score of the user or -1 if no user is found.
  */
 int getBestScore(const std::vector<std::string> &list, const std::string &name);
+
+/**
+ * Get the best score for a given user
+ * @param list a vector of string containing the name and the score formatted as follow name: delimiter
+ * where : is the delimiter
+ * @return a list with only the best score of the user
+ */
+std::vector<std::string> getListBestScore(const std::vector<std::string> &list);
 
 /**
  * Add a new score to the list if it doesn't exist

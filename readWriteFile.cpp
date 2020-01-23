@@ -4,7 +4,8 @@ Fichier : readWriteFile.cpp
 Auteur(s) : Besseau
 Date :  21.01.2020
 
-But :
+But : Ce fichier contient les méthodes permettants de lire et d'écrire
+des informations sur des fichiers
 
 Remarque(s) :
 

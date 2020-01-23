@@ -233,6 +233,10 @@ void reload(int &posSnakeX, int &posSnakeY, int &length, eDirection &direction, 
 void getScores(int score) {
     clearScreen();
     vector<string> list = getDataFromFiles(SCORE_PATH);
+//*
+    list = getListBestScore(list);
+    sortScore(list);
+    //*/
     displayScores(list);
 
     string input;
