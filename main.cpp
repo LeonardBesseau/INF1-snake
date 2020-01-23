@@ -164,7 +164,7 @@ int main() {
         } else if (input.at(0) == KEY_NAME) {
             changeName(playerName);
         } else if (input.at(0) == KEY_RESEARCH) {
-            menuBestScore(snakeSize);
+            menuBestScore();
         } else if (input.at(0) == KEY_QUIT)
             shutDown = true;
 
