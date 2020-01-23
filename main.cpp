@@ -258,7 +258,7 @@ void changeName(string &name) {
 
 void setScore(const string &name, int score) {
     vector<string> list = getDataFromFiles(SCORE_PATH);
-    modifyScore(list, name, score);
+    addScore(list, name, score);
     sortScore(list);
     writeDataToFiles(SCORE_PATH, list);
 }

@@ -33,7 +33,7 @@ void sortScore(std::vector<std::string> &list) {
     }
 }
 
-void modifyScore(vector<string> &list, const string &name, int score) {
+void addScore(vector<string> &list, const string &name, int score) {
     string input = name + DELIMITER + to_string(score);
     if (list.end() == find(list.begin(), list.end(), input)) {
         list.push_back(input);
