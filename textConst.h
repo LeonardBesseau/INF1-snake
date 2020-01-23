@@ -67,9 +67,13 @@ const std::string OBSTACLE = "X";
 //FilePath
 const std::string SCORE_PATH = "scores.txt";
 
-const std::string NAME_ASK = "Enter a player name :";
-const std::string NAME_CURRENT = "Player name : ";
-const std::string NAME_CHANGE = "Enter a new name : ";
+const std::string NAME = "name ";
+const std::string PLAYER = "player ";
+const std::string ENTER_NAME = "Enter a ";
+const std::string NAME_FORBIDDEN = std::string("( No ") + DELIMITER + " or single " + KEY_QUIT + " )";
+const std::string NAME_ASK = ENTER_NAME + PLAYER + NAME + NAME_FORBIDDEN + ": ";
+const std::string NAME_CURRENT = PLAYER + NAME + ": ";
+const std::string NAME_CHANGE = ENTER_NAME + PLAYER + "new " + NAME + NAME_FORBIDDEN + ": ";
 
 //Best score
 const std::string BEST_SCORE = "Best score : ";
