@@ -88,9 +88,8 @@ void setScore(const string &name, int score);
 
 /**
  * Function managing the research best score menu.
- * @param score actual player score
  */
-void menuBestScore(int score);
+void menuBestScore();
 
 int main() {
     // CONFIGURATIONS VARIABLES
@@ -263,7 +262,7 @@ void setScore(const string &name, int score) {
     writeDataToFiles(SCORE_PATH, list);
 }
 
-void menuBestScore(int score) {
+void menuBestScore() {
     vector<string> list = getDataFromFiles(SCORE_PATH);
     string input;
     bool exit;
