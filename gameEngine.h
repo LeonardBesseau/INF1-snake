@@ -22,18 +22,31 @@
 enum eDirection {
     STOP, LEFT, RIGHT, UP, DOWN
 };
+/**
+* @brief Fonction calculant un vecteur de coordonée X,Y tout en evitant les doublons
+* @param width largeur du jeu.
+* @param height hauteur du jeu.
+* @param obstacles vecteur de vecteur contenant les coordonnées de chaque obstacles
+* @return un vecteur de coordonée X,Y unique
+*/
 std::vector<int> randomizeCoordinate(int width, int height, std::vector<std::vector<int>> &obstacles);
 /**
-* @brief Fonction calculant la position du prochain FRUIT.
+* @brief Fonction calculant la position du prochain FRUIT à l'aide de randomizeCoordinate.
 * @param fruitX [out] position X du Fruit.
 * @param fruitY [out] position Y du Fruit.
 * @param width largeur du jeu.
 * @param height hauteur du jeu.
+* @param obstacles vecteur de vecteur contenant les coordonnées de chaque obstacles
 */
 void fruitSpawn(int &fruitX, int &fruitY, const int width, const int height, std::vector<std::vector<int>> &obstacles);
-
+/**
+* @brief Fonction calculant la position des N obstacles au début du jeu
+* @param obstacles vecteur de vecteur contenant les coordonnées de chaque obstacles
+* @param width largeur du jeu.
+* @param height hauteur du jeu.
+* @param NObstacles nombre d'obstacle dans le jeu
+*/
 void obstaclesSpawn(std::vector<std::vector<int>> &obstacles, const int width, const int height, const int &NObstacles);
-
 
 /**
 * @brief Fonction modifiant le plateau de jeu et les éléments du jeu.
@@ -48,6 +61,7 @@ void obstaclesSpawn(std::vector<std::vector<int>> &obstacles, const int width, c
 * @param tailY [in/out] tableau de positions Y correspondant aux coordonnées Y de la queue du serpent
 * @param direction direction du mouvement.
 * @param gameover [out] boolean définissant si le joueur a perdu
+* @param obstacles vecteur de vecteur contenant les coordonnées de chaque obstacles
 */
 void
 logic(const int width, const int height, int &snakePosX, int &snakePosY, int &fruitPosX, int &fruitPosY, int &snakeSize,

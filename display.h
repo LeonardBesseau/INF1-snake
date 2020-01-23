@@ -41,6 +41,7 @@ void displayInstructions();
 * @param snakeSize longueur du serpent.
 * @param tailX tableau de positions X correspondant aux coordonnées X de la queue du serpent
 * @param tailY tableau de positions Y correspondant aux coordonnées Y de la queue du serpent
+* @param obstacles vecteur de vecteur contenant les coordonnées de chaque obstacles
 */
 void draw(int width, int height, int snakePosX, int snakePosY, int fruitPosX, int fruitPosY, int snakeSize, int tailX[],
           int tailY[], std::vector<std::vector<int>> &obstacles);
