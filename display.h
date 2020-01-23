@@ -46,20 +46,28 @@ void draw(int width, int height, int snakePosX, int snakePosY, int fruitPosX, in
           int tailY[], std::vector<std::vector<int>> &obstacles);
 
 /**
- *
- * @param list
+ * Display list of best score
+ * @param list a vector of string with the score to display
  */
 void displayScores(const std::vector<std::string> &list);
 
 
 /**
- *
- * @param name
+ * Display text for name change
+ * @param name the current name of the player
  */
-void displayName(const std::string &name);
+void displayNameMenu(const std::string &name);
 
+/**
+ * Display the best score
+ * @param score the score to display
+ * @details if score is negative, indicate that no player is found
+ */
 void displayBestScore(int score);
 
+/**
+ *  Display prompt for research name
+ */
 void displayAskForName();
 
 #endif

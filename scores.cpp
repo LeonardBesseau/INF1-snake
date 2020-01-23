@@ -80,14 +80,17 @@ std::vector<std::string> getListBestScore(const std::vector<std::string> &list) 
     }
 
     vector<string> output;
+    // reserve size
     output.reserve(list.size());
 
-    for (auto i = scores.begin(); i != scores.end(); ++i) {
+    for (auto i = scores.begin(); i != scores.end();) {
         string key = i->first;
-        auto b = scores.upper_bound(key);
+        // add best score to list
         output.push_back(createStringScore(key, getMaxElementInMap(scores, key), DELIMITER));
-        i = prev(b);
+        // next key
+        i = scores.upper_bound(key);
     }
+    output.shrink_to_fit();
     return output;
 }
 

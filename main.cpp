@@ -249,7 +249,7 @@ void changeName(string &name) {
     string input;
     do {
         clearScreen();
-        displayName(name);
+        displayNameMenu(name);
 
         getline(cin, input);
 

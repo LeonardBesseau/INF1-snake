@@ -99,7 +99,7 @@ void displayScores(const std::vector<std::string> &list) {
     }
 }
 
-void displayName(const std::string &name) {
+void displayNameMenu(const std::string &name) {
     if (name.empty()) {
         std::cout << NAME_ASK << std::endl;
     } else {

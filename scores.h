@@ -46,10 +46,10 @@ void sortScore(std::vector<std::string> &list);
 int getBestScore(const std::vector<std::string> &list, const std::string &name);
 
 /**
- * Get the best score for a given user
+ * Get the best score for all user
  * @param list a vector of string containing the name and the score formatted as follow name: delimiter
  * where : is the delimiter
- * @return a list with only the best score of the user
+ * @return a list with only the best score of all user
  */
 std::vector<std::string> getListBestScore(const std::vector<std::string> &list);
 
