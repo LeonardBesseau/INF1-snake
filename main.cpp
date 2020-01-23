@@ -92,8 +92,6 @@ void setScore(const string &name, int score);
  */
 void menuBestScore(int score);
 
-
-//*
 int main() {
     // CONFIGURATIONS VARIABLES
     bool gameover = false;
@@ -175,7 +173,6 @@ int main() {
     return 0;
 }
 
-//*/
 void restart(int score) {
     clearScreen();
     displayMenu(score);
@@ -233,10 +230,9 @@ void reload(int &posSnakeX, int &posSnakeY, int &length, eDirection &direction, 
 void getScores(int score) {
     clearScreen();
     vector<string> list = getDataFromFiles(SCORE_PATH);
-//*
+
     list = getListBestScore(list);
     sortScore(list);
-    //*/
     displayScores(list);
 
     string input;
