@@ -47,7 +47,7 @@ void draw(int width, int height, int snakePosX, int snakePosY, int fruitPosX, in
           int tailY[], std::vector<std::vector<int>> &obstacles);
 
 /**
- * Display list of best score
+ * Display list of best score in descending order
  * @param list a vector of string with the score to display
  */
 void displayScores(const std::vector<std::string> &list);

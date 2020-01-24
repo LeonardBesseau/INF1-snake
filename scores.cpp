@@ -29,14 +29,13 @@ int getMaxElementInMap(const multimap<string, int> &map, const string &key);
  * @param name a string with the name
  * @param score an integer for the score of the user
  * @return a string formatted as name:score where : is the delimiter
- * @details
  */
 string createStringScore(const string &name, int score, char delimiter);
 
 
 void sortScore(std::vector<std::string> &list) {
     // Multimap to sort list keeping the name and score associated
-    multimap<int, string> scores;
+    multimap<int, string, greater<int>> scores;
     for (const string &s : list) {
         size_t pos = s.find(DELIMITER);
         scores.emplace(stoi(s.substr(pos + 1)), s.substr(0, pos));

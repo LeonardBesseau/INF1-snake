@@ -94,8 +94,8 @@ void draw(int width, int height, int snakePosX, int snakePosY, int fruitPosX, in
 
 void displayScores(const std::vector<std::string> &list) {
     unsigned index = 1;
-    for (auto i = list.crbegin(); i != list.crend(); ++i) {
-        std::cout << index++ << " " << *i << std::endl;
+    for (const std::string &i : list) {
+        std::cout << index++ << " " << i << std::endl;
     }
 }
 

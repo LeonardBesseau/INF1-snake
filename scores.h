@@ -26,7 +26,7 @@ Compilateur : g++ 7.4.0
 typedef std::multimap<std::string, int>::const_iterator mapIterator;
 
 /**
- * Sort the list of name and score by score
+ * Sort the list of name and score by score in descending order
  * @param list a vector of string containing the data
  * @details the data must be formatted as following
  * name:score
